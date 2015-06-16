@@ -1,0 +1,11 @@
+{
+  "port": 3000,
+  "twilioSID": "",
+  "twilioTOKEN": "",
+  "twilioNumber": "",
+  "minTimeBetweenPrompts": "45 minutes",
+  "maxTimeBetweenPrompts": "3 hours",
+  "doNotDisturbDuring": ["HH:MM:SS", "HH:MM:SS"],
+  "dbPath": "./db",
+  "publicAddress": "https://my.site",
+}
