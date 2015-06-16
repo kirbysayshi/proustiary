@@ -8,4 +8,14 @@
   "doNotDisturbDuring": ["HH:MM:SS", "HH:MM:SS"],
   "dbPath": "./db",
   "publicAddress": "https://my.site",
+  "prompts": [
+    "The last thing you just heard.",
+    "The last song you listened to.",
+    "The last photo you took.",
+    "Take a selfie.",
+    "The last thing you read.",
+    "The last screenshot you took",
+    "What do you imagine your best friend is doing right now?",
+    "What do you imagine your ex is doing right now?"
+  ]
 }
