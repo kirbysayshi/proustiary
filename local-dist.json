@@ -8,6 +8,7 @@
   "doNotDisturbDuring": ["HH:MM:SS", "HH:MM:SS"],
   "dbPath": "./db",
   "publicAddress": "https://my.site",
+  "secretSalt": "something here",
   "prompts": [
     "The last thing you just heard.",
     "The last song you listened to.",
