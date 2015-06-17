@@ -10,13 +10,13 @@
   "publicAddress": "https://my.site",
   "secretSalt": "something here",
   "prompts": [
-    "The last thing you just heard.",
-    "The last song you listened to.",
-    "The last photo you took.",
-    "Take a selfie.",
-    "The last thing you read.",
-    "The last screenshot you took",
-    "What do you imagine your best friend is doing right now?",
-    "What do you imagine your ex is doing right now?"
+    { "weight": 1, "question": "The last thing you just heard." },
+    { "weight": 1, "question": "The last song you listened to." },
+    { "weight": 1, "question": "The last photo you took." },
+    { "weight": 1, "question": "Take a selfie." },
+    { "weight": 1, "question": "The last thing you read." },
+    { "weight": 1, "question": "The last screenshot you took" },
+    { "weight": 1, "question": "What do you imagine your best friend is doing right now?" },
+    { "weight": 1, "question": "What do you imagine your ex is doing right now?" }
   ]
 }
