@@ -31,7 +31,7 @@ http.createServer(function(req, res) {
     console.log('FROM number', parsed.From);
 
     if (!parsed || !parsed.From) {
-      res.statusCode = 502;
+      res.statusCode = 400;
       res.write('Invalid Webhook Body');
       res.end();
       return;
@@ -40,11 +40,16 @@ http.createServer(function(req, res) {
     User.getOrCreateFromPhoneNumber(parsed.From, function(err, userInfo) {
       if (err) {
         console.log(err);
+        res.statusCode = 500;
+        res.write('Could not get or create user.');
+        res.end();
         return;
       }
       DialogState.handle(userInfo, parsed.Body, function(err, message) {
         if (err) return twimlResponse(res, 200, err.message);
-        if (message) twimlResponse(res, 200, message);
+        if (message) return twimlResponse(res, 200, message);
+        res.statusCode = 200;
+        res.end();
       });
     });
   }))
