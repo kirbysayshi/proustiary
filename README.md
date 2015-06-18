@@ -82,6 +82,13 @@ You can now easily stop and start this process with `docker stop proustiary` && 
 
 If you make changes you will need to rebuild the container.
 
+You can also link in your config file externally during the `run` command to prevent having to rebuild the container each time:
+
+```
+docker run -d -p 80:3000 --name proustiary -v $PWD/db:/db -v $PWD/local.json:/local.json proustiary-container
+```
+
+
 LICENSE
 -------
 
