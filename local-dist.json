@@ -7,6 +7,7 @@
   "maxTimeBetweenPrompts": "3 hours",
   "doNotDisturbDuring": ["HH:MM:SS", "HH:MM:SS"],
   "dbPath": "./db",
+  "publicName": "My-Proustiary",
   "publicAddress": "https://my.site",
   "secretSalt": "something here",
   "prompts": [
