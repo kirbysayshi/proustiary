@@ -5,7 +5,7 @@ A... proustionaire?
 
 **THIS IS ONE HUGE EXPERIMENT, BE CAREFUL.**
 
-Text something to `+1-718-306-9842` to get started (assuming my twilio account holds out and the server stays up).
+Use SMS to respond to questions about your life in the moment. Maybe look at your responses in the future?
 
 Responses are stored slightly anonymized, where your phone number is hashed to provide one level of indirection. Future plans include fully encrypted responses, if this idea pans out.
 
@@ -17,6 +17,11 @@ I was reading http://thehairpin.com/2015/01/since-living-alone/, by [Durga Chew-
 I then wondered about cataloging my responses to some of these questions over time, and if that would be neat or not. Also if it should be public, or something private.
 
 I figured SMS was the easiest way to both remind myself and respond.
+
+Adding questions
+----------------
+
+Edit `local-dist.json` and add more questions! Right now only text is supported as responses but I'd like images (MMS) to work soon in the future.
 
 Code Inspiration
 ----------------
