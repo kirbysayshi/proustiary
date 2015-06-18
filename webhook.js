@@ -30,6 +30,13 @@ http.createServer(function(req, res) {
     console.log('webhook body parsed', parsed);
     console.log('FROM number', parsed.From);
 
+    if (!parsed || !parsed.From) {
+      res.statusCode = 502;
+      res.write('Invalid Webhook Body');
+      res.end();
+      return;
+    }
+
     User.getOrCreateFromPhoneNumber(parsed.From, function(err, userInfo) {
       if (err) {
         console.log(err);
