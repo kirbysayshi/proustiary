@@ -18,6 +18,8 @@ I then wondered about cataloging my responses to some of these questions over ti
 
 I figured SMS was the easiest way to both remind myself and respond.
 
+Plus it seems like text is pretty cool. https://medium.com/@mg/there-s-a-chat-for-that-apple-s-biggest-platform-opportunity-yet-19d5b1870857
+
 Adding questions
 ----------------
 
