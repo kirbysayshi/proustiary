@@ -14,6 +14,35 @@ Prompt.setJobHook(DialogState.onShouldSendPrompt);
 
 http.createServer(function(req, res) {
 
+  var parts = null;
+
+  if ( (parts = /\/u\/(\+[0-9]{11})$/.exec(req.url)) ) {
+    console.log('parts', parts);
+    User.getOrCreateFromPhoneNumber(parts[1], function(err, userInfo) {
+      if (err) {
+        res.statusCode = 500;
+        res.write('Error retrieving user');
+        res.end();
+        return;
+      }
+
+      res.statusCode = 200;
+
+      require('./lib/db')('prompts-answered').createReadStream({
+        lte: 'prompt!' + userInfo.hash + '!' + Date.now(),
+        gte: 'prompt!' + userInfo.hash + '!' + 0,
+        reverse: true
+      })
+      .on('data', function(data) {
+        res.write(JSON.stringify(data.value) + '\n');
+      })
+      .on('end', function() {
+        res.end();
+      })
+    })
+    return;
+  }
+
   if (req.url !== '/twebhook') {
     res.statusCode = 404;
     res.write('Unknown');
