@@ -1,4 +1,4 @@
-FROM node
+FROM iojs:onbuild
 COPY . .
 RUN npm install
 EXPOSE 3000
