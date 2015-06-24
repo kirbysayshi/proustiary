@@ -90,6 +90,7 @@ You can also link in your config file externally during the `run` command to pre
 docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db -v $PWD/local.json:/app/local.json proustiary-container
 ```
 
+To modify the prompts, change `local.json`, and then `docker restart proustiary`.
 
 LICENSE
 -------
