@@ -92,6 +92,14 @@ docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db -v $PWD/local.json
 
 To modify the prompts, change `local.json`, and then `docker restart proustiary`.
 
+TODO
+----
+
+- [ ] add `weight` to prompts in addition to blackout so certain questions are quite rare
+- [ ] provide `/cmd`-style system (`/history`, for example)
+- [ ] test dialog state machine
+- [ ] make some sort of twilio mock / or just figure out how the test magic numbers can work
+
 LICENSE
 -------
 
