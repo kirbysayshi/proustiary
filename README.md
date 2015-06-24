@@ -67,7 +67,7 @@ docker build -t proustiary-container .
 **Run the container:**
 
 ```
-docker run -d -p 80:3000 --name proustiary -v $PWD/db:/usr/src/app/db proustiary-container
+docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db proustiary-container
 ```
 
 **-d** runs the container as a daemon process
@@ -76,7 +76,7 @@ docker run -d -p 80:3000 --name proustiary -v $PWD/db:/usr/src/app/db proustiary
 
 **--name bbs** a name we can use to refer to this process
 
-**-v $PWD/db:/db** mount the db folder in our present working directory to the db folder used by the app (makes database persistent)
+**-v $PWD/db:/app/db** mount the db folder in our present working directory to the db folder used by the app (makes database persistent)
 
 **proustiary-container** the name of the container to use
 
@@ -87,7 +87,7 @@ If you make changes you will need to rebuild the container.
 You can also link in your config file externally during the `run` command to prevent having to rebuild the container each time:
 
 ```
-docker run -d -p 80:3000 --name proustiary -v $PWD/db:/usr/src/app/db -v $PWD/local.json:/usr/src/app/local.json proustiary-container
+docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db -v $PWD/local.json:/app/local.json proustiary-container
 ```
 
 

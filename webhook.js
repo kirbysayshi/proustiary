@@ -39,7 +39,7 @@ http.createServer(function(req, res) {
       })
       .on('end', function() {
         res.end();
-      })
+      });
     })
     return;
   }
