@@ -28,6 +28,7 @@ http.createServer(function(req, res) {
 
       res.statusCode = 200;
 
+      // Yes, this will exhaust memory eventually...
       require('./lib/db')('prompts-answered').createReadStream({
         lte: 'prompt!' + userInfo.hash + '!' + Date.now(),
         gte: 'prompt!' + userInfo.hash + '!' + 0,
