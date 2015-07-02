@@ -33,7 +33,7 @@ So many patterns, documentation, and code snippets taken from https://github.com
 Development
 -----------
 
-Clone the repo, copy `local-dist.json` to `local.json`, then signup for a Twilio account and insert your SID and Auth Token from https://www.twilio.com/user/account/ into `local.json`. Also include your Twilio phone number for the `twilioNumber` field, including the leading `+`. For the US this looks like: `+17183069842`.
+Clone the repo, copy `local-dist.json` to `local.json`, create a database folder `db`, then signup for a Twilio account and insert your SID and Auth Token from https://www.twilio.com/user/account/ into `local.json`. Also include your Twilio phone number for the `twilioNumber` field, including the leading `+`. For the US this looks like: `+17183069842`.
 
 You'll likely want your server to be reachable by Twilio, so fire up ngrok:
 
@@ -47,6 +47,8 @@ And add the URL it gives you to Twilio's web configuration, appending `/twebhook
 https://HEXNUMBERHERE.ngrok.com/twebhook
 ```
 
+The URL should be added to the 'SMS & MMS' subsection in the 'Request URL' field. The webhook expects a `POST` request.
+
 Then:
 
 ```
@@ -58,27 +60,27 @@ Deployment via Docker
 
 Clone this repo, and create a local.json.
 
-**Build a container:**
+**Build an image:**
 
 ```
-docker build -t proustiary-container .
+docker build -t proustiary-image .
 ```
 
-**Run the container:**
+**Run the image as a container:**
 
 ```
-docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db proustiary-container
+docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db proustiary-image
 ```
 
 **-d** runs the container as a daemon process
 
 **-p 80:3000** binds port 3000 of the app to port 80 on our server
 
-**--name bbs** a name we can use to refer to this process
+**--name proustiary** a name we can use to refer to this container
 
 **-v $PWD/db:/app/db** mount the db folder in our present working directory to the db folder used by the app (makes database persistent)
 
-**proustiary-container** the name of the container to use
+**proustiary-image** the name of the image to use
 
 You can now easily stop and start this process with `docker stop proustiary` && `docker start proustiary`
 
@@ -87,7 +89,7 @@ If you make changes you will need to rebuild the container.
 You can also link in your config file externally during the `run` command to prevent having to rebuild the container each time:
 
 ```
-docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db -v $PWD/local.json:/app/local.json proustiary-container
+docker run -d -p 80:3000 --name proustiary -v $PWD/db:/app/db -v $PWD/local.json:/app/local.json proustiary-image
 ```
 
 To modify the prompts, change `local.json`, and then `docker restart proustiary`.
