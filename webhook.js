@@ -10,11 +10,13 @@ var querystring = require('querystring');
 
 var User = require('./lib/user');
 var Prompt = require('./lib/prompt');
+var Reminder = require('./lib/reminder');
 var DialogState = require('./lib/dialog-state');
 
 // Connect the job scheduler to the job immediately, since it needs to be
 // defined before attempting to resume pending jobs.
 Prompt.setJobHook(DialogState.onShouldSendPrompt);
+Reminder.start();
 
 http.createServer(function(req, res) {
 

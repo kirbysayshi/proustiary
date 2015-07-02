@@ -5,6 +5,7 @@
   "twilioNumber": "",
   "minTimeBetweenPrompts": "45 minutes",
   "maxTimeBetweenPrompts": "3 hours",
+  "reminderInterval": "1 second",
   "doNotDisturbDuring": ["HH:MM:SS", "HH:MM:SS"],
   "dbPath": "./db",
   "publicName": "My-Proustiary",
