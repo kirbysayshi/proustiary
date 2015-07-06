@@ -1,5 +1,9 @@
 var conf = require('./lib/conf');
 
+// Initialize / seed the random generator immediately. The actual seed isn't
+// important, since the seed is mostly for testing / reproducibilty purposes.
+var random = require('./lib/random')();
+
 var http = require('http');
 var concat = require('concat-stream');
 var querystring = require('querystring');
