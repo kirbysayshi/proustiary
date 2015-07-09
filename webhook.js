@@ -16,7 +16,7 @@ var DialogState = require('./lib/dialog-state');
 // Connect the job scheduler to the job immediately, since it needs to be
 // defined before attempting to resume pending jobs.
 Prompt.setJobHook(DialogState.onShouldSendPrompt);
-Reminder.start();
+Reminder.start(DialogState.onShouldSendReminder);
 
 http.createServer(function(req, res) {
 
