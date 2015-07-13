@@ -102,7 +102,8 @@ test('schedule', function(t) {
 
 test('answer', function(t) {
   var p = {
-    prompted: null,
+    prompted: Date.now(),
+    lastReminder: Date.now(),
     answered: null,
     promptId: 0,
     question: 'a',
@@ -114,13 +115,13 @@ test('answer', function(t) {
     promptsUnansweredDB.get('unanswered!user1', function(err, unanswered) {
       t.ifErr(err);
       t.ok(unanswered);
-      t.ok(unanswered.prompted !== null, 'prompted is not null');
       prompt.answer('user1', 'answer', function(err) {
         t.ifErr(err);
         promptsUnansweredDB.get('unanswered!user1', function(err) {
           t.ok(err instanceof Error, 'no longer unanswered');
           promptsAnsweredDB.createReadStream().on('data', function(data) {
             t.ok(data.value.prompted, 'prompted');
+            t.ok(data.value.lastReminder, 'lastReminder');
             t.ok(data.value.answered, 'answered');
             t.equal(data.value.answer, 'answer');
             t.equal(data.value.promptId, 0, 'promptId');

@@ -5,6 +5,8 @@
   "twilioNumber": "",
   "minTimeBetweenPrompts": "45 minutes",
   "maxTimeBetweenPrompts": "3 hours",
+  "timeBetweenReminders": "1 day",
+  "reminderJobInterval": "1 hours",
   "doNotDisturbDuring": ["HH:MM:SS", "HH:MM:SS"],
   "dbPath": "./db",
   "publicName": "My-Proustiary",
@@ -19,5 +21,13 @@
     { "id": 5, "blackout": 1, "question": "The last screenshot you took" },
     { "id": 6, "blackout": 1, "question": "What do you imagine your best friend is doing right now?" },
     { "id": 7, "blackout": 1, "question": "What do you imagine your ex is doing right now?" }
+  ],
+  "reminderPrompts": [
+    "Be like Proust and answer the question!",
+    "Poke! Don't forget about me!",
+    "Make an assessment. Answer the question.",
+    "Hey there, just checking in.",
+    "Have you had a chance to review the question?",
+    "Don't you...forget about me!"
   ]
 }
